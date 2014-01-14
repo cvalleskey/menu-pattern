@@ -1,0 +1,174 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+body {
+	color: #333;
+	font: 16px/1.5 Helvetica Neue, sans-serif;
+	background: #df4148;
+}
+
+a {
+	cursor: pointer;
+}
+
+ul {
+	list-style: none;
+}
+
+#nav {
+	width: 100%;
+}
+
+.btn, .nav-btn {
+	cursor: pointer;
+}
+
+.nav-btn {
+	border: 0.125em solid #FFF;
+	border-radius: 0.25em;
+	display: inline-block;
+	padding: 0.375em 1em;
+	line-height: 1.5em;
+	color: #FFF;
+}
+
+.nav-btn-menu {
+	float: right;
+	text-transform: uppercase;
+}
+
+#nav > .header {
+	background: #df4148;
+	position: relative;
+	z-index: 1000;
+	padding: 0.75em;
+	overflow: hidden;
+}
+
+.menu {
+	transition: left 0.2s;
+	position: absolute;
+	top: 4em;
+	left: 100%;
+	width: 100%;
+	height: auto;
+	bottom: 0;
+	background: #FFF;
+	z-index: 100;
+	padding: 0;
+	overflow-y: auto;
+}
+
+.menu.active {
+	left: 0;
+}
+
+.menu ul {
+	transition: left 0.2s;
+	padding: 0;
+	height: auto;
+	background: #FFF;
+	position: fixed;
+	overflow-x: hidden;
+	left: 100%;
+	top: 4em;
+	bottom: 0;
+}
+
+.menu li.active > ul {
+	display: block;
+	left: 3em;
+	z-index: 300;
+	bottom: 0;
+	right: 0;
+	box-shadow: 0 0 1em rgba(0,0,0,0.5);
+	overflow-y: auto;
+}
+
+/*.menu li.active > ul:after {
+	content: " ";
+	display: block;
+	background: linear-gradient(90deg, transparent, rgba(0,0,0,0.3));
+	width: 0.5em;
+	height: 100%;
+	position: fixed;
+	margin-left: -0.5em;
+	left: inherit;
+	top: 4em;
+}*/
+
+.menu li {
+	background: #FFF;
+	border-bottom: 1px solid #DDD;
+}
+
+.menu li:after {
+	content: " ";
+	/*transition: background 0.4s;*/
+	position: fixed;
+	top: 4em;
+	/*left: -4em;*/
+	display: block;
+	width: 0;
+	height: 100%;
+	background: rgba(0,0,0,0.4);
+}
+
+.menu li.active:after {
+	left: 0;
+	width: 100%;
+	/*background: rgba(0,0,0,0.4);*/
+}
+
+.menu .active {
+	z-index: 200;
+}
+
+.menu .header, .menu a, .menu .arrow, .menu .item {
+	color: #333;
+	text-decoration: none;
+	display: block;
+	padding: 1.25em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.menu .header {
+	font-weight: normal;
+	background: #46474B;
+	color: #FFF;
+}
+
+.menu .arrow {
+	float: right;
+	width: 10%;
+	text-align: center;
+	cursor: pointer;
+	min-width: 4em;
+}
+
+.menu .arrow + a {
+	padding-right: 0;
+}
+
+.menu a {
+	font-weight: bold;
+}
+
+.menu a:hover, .menu .arrow:hover {
+	background: #EEE;
+}
+
+.menu > .header {
+	display: none;
+}
